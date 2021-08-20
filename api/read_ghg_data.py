@@ -22,6 +22,7 @@ def parse(data_list):
     for i in range(len(data_list)):
         # year, month, reading
         cleaned_data.append([data_list[i][0], data_list[i][1], data_list[i][4]])
+    return cleaned_data
 
 
 def lambda_handler(event, context):
@@ -29,5 +30,5 @@ def lambda_handler(event, context):
     url = event['url']
     print(url)
     data = download(url)
-    parse(data)
+    return parse(data)
 
